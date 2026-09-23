@@ -7,12 +7,12 @@ function getIdFromQuery() {
   return params.get("id");
 }
 
-function renderDetail() {
+async function renderDetail() {
   const root = document.querySelector("#detail-root");
   if (!root) return;
 
   const id = getIdFromQuery();
-  const r = id ? RestaurantStore.get(id) : null;
+  const r = id ? await RestaurantStore.get(id) : null;
 
   if (!r) {
     root.innerHTML = `

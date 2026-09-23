@@ -3,14 +3,14 @@
    Deve ser incluído em todas as páginas, depois de data.js.
    ========================================================================== */
 
-function initNavbar() {
+async function initNavbar() {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (toggle && links) {
     toggle.addEventListener("click", () => links.classList.toggle("open"));
   }
 
-  const session = Session.get();
+  const session = await Session.get();
   const chip = document.querySelector("[data-user-chip]");
   const authLinks = document.querySelector("[data-auth-links]");
   const restrictedLinks = document.querySelectorAll("[data-requires-auth]");
@@ -31,21 +31,24 @@ function initNavbar() {
 
   const logoutBtn = document.querySelector("[data-logout]");
   if (logoutBtn) {
-    logoutBtn.addEventListener("click", (e) => {
+    logoutBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      Session.clear();
+      await AuthAPI.logout();
       showToast("Você saiu da sua conta.");
       setTimeout(() => (window.location.href = "index.html"), 600);
     });
   }
 }
 
-function requireAuth() {
-  if (!Session.isLoggedIn()) {
+/** Garante que há um usuário autenticado; redireciona para login.html
+ *  caso contrário. Retorna os dados do usuário quando autenticado. */
+async function requireAuth() {
+  const session = await Session.get();
+  if (!session) {
     window.location.href = "login.html";
-    return false;
+    return null;
   }
-  return true;
+  return session;
 }
 
 function showToast(message, type = "success") {

@@ -3,11 +3,12 @@
    ========================================================================== */
 
 let activeCuisineFilter = "Todas";
+let todosOsRestaurantes = [];
 
 function populateCityOptions() {
   const select = document.querySelector("#filter-cidade");
   if (!select) return;
-  const cidades = [...new Set(RestaurantStore.all().map((r) => r.cidade))].sort();
+  const cidades = [...new Set(todosOsRestaurantes.map((r) => r.cidade))].sort();
   cidades.forEach((cidade) => {
     const opt = document.createElement("option");
     opt.value = cidade;
@@ -19,7 +20,7 @@ function populateCityOptions() {
 function buildCuisineChips() {
   const wrapper = document.querySelector("#cuisine-chips");
   if (!wrapper) return;
-  const cozinhas = ["Todas", ...new Set(RestaurantStore.all().map((r) => r.cozinha))];
+  const cozinhas = ["Todas", ...new Set(todosOsRestaurantes.map((r) => r.cozinha))];
 
   wrapper.innerHTML = cozinhas
     .map(
@@ -66,7 +67,7 @@ function renderRestaurants() {
   const termo = (document.querySelector("#filter-busca")?.value || "").trim().toLowerCase();
   const cidade = document.querySelector("#filter-cidade")?.value || "";
 
-  let lista = RestaurantStore.all();
+  let lista = todosOsRestaurantes;
 
   if (activeCuisineFilter !== "Todas") {
     lista = lista.filter((r) => r.cozinha === activeCuisineFilter);
@@ -109,7 +110,17 @@ function initHomeSearch() {
   document.querySelector("#filter-cidade")?.addEventListener("change", renderRestaurants);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const grid = document.querySelector("#restaurant-grid");
+  if (!grid) return;
+
+  try {
+    todosOsRestaurantes = await RestaurantStore.all();
+  } catch (err) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;"><h3>Não foi possível carregar os restaurantes</h3><p>${escapeHTML(err.message)}</p></div>`;
+    return;
+  }
+
   populateCityOptions();
   buildCuisineChips();
   renderRestaurants();

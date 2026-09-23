@@ -1,5 +1,5 @@
 /* ==========================================================================
-   La Torre — Login e Cadastro
+   La Torre — Login e Cadastro (via API)
    ========================================================================== */
 
 function handleLoginForm() {
@@ -8,7 +8,7 @@ function handleLoginForm() {
 
   const errorBox = form.querySelector(".form-error");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     errorBox.classList.remove("show");
 
@@ -21,16 +21,18 @@ function handleLoginForm() {
       return;
     }
 
-    const user = UserStore.findByEmail(email);
-    if (!user || user.senha !== senha) {
-      errorBox.textContent = "E-mail ou senha inválidos.";
-      errorBox.classList.add("show");
-      return;
-    }
+    const submitBtn = form.querySelector("button[type=submit]");
+    submitBtn.disabled = true;
 
-    Session.set(user);
-    showToast(`Bem-vindo de volta, ${user.nome.split(" ")[0]}!`);
-    setTimeout(() => (window.location.href = "area.html"), 500);
+    try {
+      const usuario = await AuthAPI.login({ email, senha });
+      showToast(`Bem-vindo de volta, ${usuario.nome.split(" ")[0]}!`);
+      setTimeout(() => (window.location.href = "area.html"), 500);
+    } catch (err) {
+      errorBox.textContent = err.message;
+      errorBox.classList.add("show");
+      submitBtn.disabled = false;
+    }
   });
 }
 
@@ -41,7 +43,7 @@ function handleRegisterForm() {
   const errorBox = form.querySelector(".form-error");
   const successBox = form.querySelector(".form-success");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     errorBox.classList.remove("show");
     successBox.classList.remove("show");
@@ -63,17 +65,20 @@ function handleRegisterForm() {
     if (senha !== confirmarSenha) {
       return showError("As senhas não coincidem.");
     }
-    if (UserStore.findByEmail(email)) {
-      return showError("Já existe uma conta com este e-mail.");
+
+    const submitBtn = form.querySelector("button[type=submit]");
+    submitBtn.disabled = true;
+
+    try {
+      await AuthAPI.cadastro({ nome, email, senha });
+      successBox.textContent = "Conta criada com sucesso! Redirecionando...";
+      successBox.classList.add("show");
+      form.reset();
+      setTimeout(() => (window.location.href = "area.html"), 900);
+    } catch (err) {
+      showError(err.message);
+      submitBtn.disabled = false;
     }
-
-    const user = UserStore.create({ nome, email, senha });
-    Session.set(user);
-
-    successBox.textContent = "Conta criada com sucesso! Redirecionando...";
-    successBox.classList.add("show");
-    form.reset();
-    setTimeout(() => (window.location.href = "area.html"), 900);
 
     function showError(msg) {
       errorBox.textContent = msg;
