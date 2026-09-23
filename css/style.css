@@ -262,8 +262,20 @@ h1, h2, h3, h4 {
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.55), rgba(20, 20, 20, 0.75)),
     url("../img/hero.jpg") center/cover no-repeat;
   color: #fff;
-  padding: 110px 24px 90px;
+  padding: 110px 24px 130px;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  background: linear-gradient(180deg, transparent, var(--color-bg));
+  pointer-events: none;
 }
 
 .hero-eyebrow {
@@ -517,34 +529,6 @@ h1, h2, h3, h4 {
 .empty-state h3 {
   color: var(--color-text);
   margin-bottom: 8px;
-}
-
-/* ---------- Sobre / faixa de destaque ---------- */
-.band {
-  background: var(--color-dark);
-  color: #fff;
-  padding: 60px 0;
-}
-
-.band-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  text-align: center;
-}
-
-.band-grid .num {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  color: var(--color-gold);
-}
-
-.band-grid .label {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.75rem;
-  color: #bbb;
-  margin-top: 6px;
 }
 
 /* ---------- Formulários (login/cadastro/CRUD) ---------- */
@@ -973,10 +957,6 @@ tbody tr:hover {
   }
   .footer-grid {
     grid-template-columns: 1fr;
-  }
-  .band-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
 }
 
