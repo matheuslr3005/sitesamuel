@@ -103,9 +103,7 @@ function handleFormSubmit() {
       cozinha: form.cozinha.value.trim(),
       faixaPreco: form.faixaPreco.value,
       estrelas: Number(form.estrelas.value),
-      imagem:
-        form.imagem.value.trim() ||
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Italian_food.JPG?width=900",
+      imagem: form.imagem.value.trim() || "img/restaurantes/default.jpg",
       descricao: form.descricao.value.trim(),
     };
 

@@ -260,8 +260,7 @@ h1, h2, h3, h4 {
 .hero {
   position: relative;
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.55), rgba(20, 20, 20, 0.75)),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Restaurant_in_the_Piazza_del_Duomo,_Florence,_Italy.jpg?width=1600")
-      center/cover no-repeat;
+    url("../img/hero.jpg") center/cover no-repeat;
   color: #fff;
   padding: 110px 24px 90px;
   text-align: center;

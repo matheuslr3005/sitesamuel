@@ -22,8 +22,7 @@ const SEED_RESTAURANTS = [
     estrelas: 3,
     descricao:
       "Massas artesanais e cozinha romana autêntica em um salão íntimo perto do Coliseu.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_alla_Gricia.jpg?width=900",
+    imagem: "img/restaurantes/roma.jpg",
   },
   {
     id: "r2",
@@ -35,8 +34,7 @@ const SEED_RESTAURANTS = [
     estrelas: 2,
     descricao:
       "Carnes grelhadas e vinhos toscanos selecionados em ambiente elegante e clássico.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Bistecca_alla_Fiorentina.jpg?width=900",
+    imagem: "img/restaurantes/florenca.jpg",
   },
   {
     id: "r3",
@@ -48,8 +46,7 @@ const SEED_RESTAURANTS = [
     estrelas: 1,
     descricao:
       "A verdadeira pizza napoletana, forno a lenha e receitas de família há três gerações.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Italian_Pizza_(funghi).jpg?width=900",
+    imagem: "img/restaurantes/napoles.jpg",
   },
   {
     id: "r4",
@@ -61,8 +58,7 @@ const SEED_RESTAURANTS = [
     estrelas: 3,
     descricao:
       "Frutos do mar frescos da laguna com vista para os canais, em um jardim escondido.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Strozzapreti_Pasta.JPG?width=900",
+    imagem: "img/restaurantes/veneza.jpg",
   },
   {
     id: "r5",
@@ -74,8 +70,7 @@ const SEED_RESTAURANTS = [
     estrelas: 1,
     descricao:
       "Cozinha italiana com toque contemporâneo, no coração do distrito da moda.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Trattoria_Da_Franca_e_Lillo_Milano_04.jpg?width=900",
+    imagem: "img/restaurantes/milao.jpg",
   },
   {
     id: "r6",
@@ -87,8 +82,7 @@ const SEED_RESTAURANTS = [
     estrelas: 2,
     descricao:
       "Sabores sicilianos vibrantes, com destaque para arancini e peixe fresco do mercado.",
-    imagem:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Arancine_in_Favignana.jpg?width=900",
+    imagem: "img/restaurantes/palermo.jpg",
   },
 ];
 
