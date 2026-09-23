@@ -23,7 +23,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "Massas artesanais e cozinha romana autêntica em um salão íntimo perto do Coliseu.",
     imagem:
-      "https://images.unsplash.com/photo-1595295333158-4742f28fbd85?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Pasta_alla_Gricia.jpg?width=900",
   },
   {
     id: "r2",
@@ -36,7 +36,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "Carnes grelhadas e vinhos toscanos selecionados em ambiente elegante e clássico.",
     imagem:
-      "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Bistecca_alla_Fiorentina.jpg?width=900",
   },
   {
     id: "r3",
@@ -49,7 +49,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "A verdadeira pizza napoletana, forno a lenha e receitas de família há três gerações.",
     imagem:
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Italian_Pizza_(funghi).jpg?width=900",
   },
   {
     id: "r4",
@@ -62,7 +62,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "Frutos do mar frescos da laguna com vista para os canais, em um jardim escondido.",
     imagem:
-      "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Strozzapreti_Pasta.JPG?width=900",
   },
   {
     id: "r5",
@@ -75,7 +75,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "Cozinha italiana com toque contemporâneo, no coração do distrito da moda.",
     imagem:
-      "https://images.unsplash.com/photo-1481931098730-318b6f776db0?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Trattoria_Da_Franca_e_Lillo_Milano_04.jpg?width=900",
   },
   {
     id: "r6",
@@ -88,7 +88,7 @@ const SEED_RESTAURANTS = [
     descricao:
       "Sabores sicilianos vibrantes, com destaque para arancini e peixe fresco do mercado.",
     imagem:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Arancine_in_Favignana.jpg?width=900",
   },
 ];
 

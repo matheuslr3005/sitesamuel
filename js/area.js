@@ -105,7 +105,7 @@ function handleFormSubmit() {
       estrelas: Number(form.estrelas.value),
       imagem:
         form.imagem.value.trim() ||
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Italian_food.JPG?width=900",
       descricao: form.descricao.value.trim(),
     };
 
