@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Área — La Torre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">LT</span>
+        <span>
+          La Torre
+          <span class="brand-sub">Guia Gastronômico</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#restaurantes">Restaurantes</a></li>
+        <li><a href="area.html" class="active">Minha Área</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <div class="user-chip" data-user-chip style="display:flex">
+          <span class="avatar">U</span>
+          <span data-user-name>Usuário</span>
+          <a href="#" data-logout title="Sair" style="opacity:.8">⎋</a>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container section-tight">
+    <div class="dash-head">
+      <div class="dash-title">
+        <h1>Gerenciar restaurantes</h1>
+        <span>Olá, <strong data-dash-name>usuário</strong> — adicione, edite ou remova restaurantes do guia La Torre.</span>
+      </div>
+      <button class="btn btn-primary" id="btn-new-restaurant">+ Novo restaurante</button>
+    </div>
+
+    <div class="panel">
+      <h2>Todos os restaurantes</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nome / Cozinha</th>
+              <th>Cidade</th>
+              <th>Preço</th>
+              <th>Estrelas</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="restaurant-table-body"></tbody>
+        </table>
+      </div>
+      <div id="table-empty" class="empty-state" style="display:none">
+        <h3>Nenhum restaurante cadastrado</h3>
+        <p>Clique em "Novo restaurante" para começar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de criação/edição -->
+  <div class="modal-overlay" id="restaurant-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="modal-title">Novo restaurante</h2>
+        <button class="modal-close" data-modal-close>&times;</button>
+      </div>
+
+      <form id="restaurant-form">
+        <div class="form-group">
+          <label for="nome">Nome do restaurante *</label>
+          <input type="text" id="nome" name="nome" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cidade">Cidade *</label>
+            <input type="text" id="cidade" name="cidade" required />
+          </div>
+          <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" name="endereco" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cozinha">Tipo de cozinha *</label>
+            <input type="text" id="cozinha" name="cozinha" placeholder="Ex: Napolitana" required />
+          </div>
+          <div class="form-group">
+            <label for="faixaPreco">Faixa de preço</label>
+            <select id="faixaPreco" name="faixaPreco">
+              <option value="€">€ — Econômico</option>
+              <option value="€€" selected>€€ — Moderado</option>
+              <option value="€€€">€€€ — Refinado</option>
+              <option value="€€€€">€€€€ — Alta gastronomia</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="estrelas">Classificação La Torre</label>
+          <select id="estrelas" name="estrelas">
+            <option value="0">Sem estrelas</option>
+            <option value="1">★ Uma estrela</option>
+            <option value="2">★★ Duas estrelas</option>
+            <option value="3">★★★ Três estrelas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="imagem">URL da imagem</label>
+          <input type="url" id="imagem" name="imagem" placeholder="https://..." />
+          <span class="form-hint">Deixe em branco para usar uma imagem padrão.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição *</label>
+          <textarea id="descricao" name="descricao" required></textarea>
+        </div>
+
+        <div class="table-actions">
+          <button type="button" class="btn btn-outline" data-modal-close>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar restaurante</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> La Torre. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/area.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Torre — Guia da Gastronomia Italiana</title>
+  <meta name="description" content="La Torre reúne os melhores endereços da culinária italiana, das trattorias tradicionais aos restaurantes estrelados." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">LT</span>
+        <span>
+          La Torre
+          <span class="brand-sub">Guia Gastronômico</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="index.html#restaurantes">Restaurantes</a></li>
+        <li data-requires-auth style="display:none"><a href="area.html">Minha Área</a></li>
+        <li data-auth-links><a href="login.html">Entrar</a></li>
+        <li data-auth-links><a href="cadastro.html" class="btn btn-primary btn-sm">Cadastre-se</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <div class="user-chip" data-user-chip>
+          <span class="avatar">U</span>
+          <span data-user-name>Usuário</span>
+          <a href="#" data-logout title="Sair" style="opacity:.8">⎋</a>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="hero-eyebrow">Desde as trattorias às mesas estreladas</span>
+    <h1>Os melhores endereços da cozinha italiana, selecionados para você</h1>
+    <p>La Torre é o seu guia para encontrar os restaurantes italianos mais autênticos, avaliados por cidade, estilo de cozinha e faixa de preço.</p>
+
+    <form class="search-box" id="search-form">
+      <input type="text" id="filter-busca" placeholder="Buscar por nome, cidade ou tipo de cozinha..." />
+      <select id="filter-cidade">
+        <option value="">Todas as cidades</option>
+      </select>
+      <select disabled title="Em breve">
+        <option>Qualquer classificação</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+  </section>
+
+  <section class="band">
+    <div class="container band-grid">
+      <div>
+        <div class="num">120+</div>
+        <div class="label">Restaurantes selecionados</div>
+      </div>
+      <div>
+        <div class="num">18</div>
+        <div class="label">Cidades da Itália</div>
+      </div>
+      <div>
+        <div class="num">3★</div>
+        <div class="label">Classificação máxima La Torre</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="restaurantes">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">A seleção La Torre</span>
+          <h2>Restaurantes em destaque</h2>
+        </div>
+        <span class="result-count" id="result-count"></span>
+      </div>
+
+      <div class="filters-bar" id="cuisine-chips"></div>
+
+      <div class="restaurant-grid" id="restaurant-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>La Torre</h4>
+          <p>Um guia independente dedicado a descobrir e celebrar a autêntica gastronomia italiana, cidade por cidade.</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastre-se</a></li>
+            <li><a href="login.html">Entrar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@latorre.com">contato@latorre.com</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> La Torre. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

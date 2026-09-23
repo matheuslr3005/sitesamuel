@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante — La Torre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">LT</span>
+        <span>
+          La Torre
+          <span class="brand-sub">Guia Gastronômico</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#restaurantes">Restaurantes</a></li>
+        <li data-requires-auth style="display:none"><a href="area.html">Minha Área</a></li>
+        <li data-auth-links><a href="login.html">Entrar</a></li>
+        <li data-auth-links><a href="cadastro.html" class="btn btn-primary btn-sm">Cadastre-se</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <div class="user-chip" data-user-chip>
+          <span class="avatar">U</span>
+          <span data-user-name>Usuário</span>
+          <a href="#" data-logout title="Sair" style="opacity:.8">⎋</a>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="detail-root"></main>
+
+  <div style="height:60px"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>La Torre</h4>
+          <p>Um guia independente dedicado a descobrir e celebrar a autêntica gastronomia italiana, cidade por cidade.</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastre-se</a></li>
+            <li><a href="login.html">Entrar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@latorre.com">contato@latorre.com</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> La Torre. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/restaurante.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
