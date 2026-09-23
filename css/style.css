@@ -166,17 +166,21 @@ h1, h2, h3, h4 {
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--color-red);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
+  mix-blend-mode: screen;
+}
+
+.auth-card .brand-mark {
+  height: 56px;
+  width: 56px;
+  object-fit: cover;
+  border-radius: 12px;
+  mix-blend-mode: normal;
+  margin: 0 auto 18px;
+  display: block;
 }
 
 .brand-sub {
